@@ -12,6 +12,11 @@ if ( have_posts() ):	// 記事が存在するか
 		the_post();	// 記事を取得
 ?>
 <article <?php post_class();	// 記事の区別用class ?>>
+	<div class="postinfo">
+		<time datetime="<?php echo get_the_date( 'Y-m-d' );	// 検索エンジン用の日付 ?>">
+			<?php echo get_the_date();	// 表示用の日付 ?>
+		</time>
+	</div>
 	<h1><?php the_title();	// 記事のタイトル ?></h1>
 	<?php the_content();	// 記事のコンテンツ ?>
 </article>
