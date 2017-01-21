@@ -62,6 +62,11 @@
 <nav>
 	<ul>
 		<?php dynamic_sidebar();?>
+		<li class="widget">
+			<ul>
+				<li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク?>">RSS</a></li>
+			</ul>
+		</li>
 	</ul>
 </nav>
 <footer>
