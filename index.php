@@ -52,5 +52,8 @@
 		</div>
 	<?php endif;	// 記事一覧が複数ページに渡る場合 ?>
 </main>
+<footer>
+	<small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
+</footer>
 </body>
 </html>
