@@ -20,6 +20,12 @@ if ( have_posts() ):	// 記事が存在するか
 		<span><?php the_category(); // カテゴリーをリストで表示 ?></span>
 	</div>
 	<?php the_content();	// 記事のコンテンツ ?>
+	<?php if ( is_single() ):	// 個別ページの場合 ?>
+		<div>
+			<?php previous_post_link( '%link', '%title' );	// 前の記事へのリンク ?>
+			<?php next_post_link( '%link', '%title' );	// 次の記事へのリンク ?>
+		</div>
+	<?php endif;?>
 </article>
 <?php
 	endwhile;
