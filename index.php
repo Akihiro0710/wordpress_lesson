@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title><?php bloginfo( 'neme' ); wp_title(); ?></title>
 	<link rel="stylesheet" href="<? echo get_stylesheet_uri();	// style.cssの読み込み ?>">
 </head>
 <body <?php body_class();	// ページの区別用class ?>>
