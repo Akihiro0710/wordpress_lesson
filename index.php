@@ -8,10 +8,11 @@
 <body <?php body_class();	// ページの区別用class ?>>
 <header>
 	<h1>
-		<a href="<?php echo home_url();	// サイトのホームへのリンク ?>">
+		<a href="<?php echo home_url();	// サイトホームへのリンク ?>">
 			<?php bloginfo( 'name' );	// サイトのタイトル ?>
 		</a>
 	</h1>
+	<p><?php bloginfo( 'description' );	// サイト説明 ?></p>
 </header>
 <main>
 	<?php
