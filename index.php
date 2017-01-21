@@ -53,6 +53,11 @@
 		</div>
 	<?php endif;	// 記事一覧が複数ページに渡る場合 ?>
 </main>
+<nav>
+	<ul>
+		<?php dynamic_sidebar();?>
+	</ul>
+</nav>
 <footer>
 	<small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
 </footer>
