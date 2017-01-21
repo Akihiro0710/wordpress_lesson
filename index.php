@@ -16,6 +16,9 @@
 	<p><?php bloginfo( 'description' );	// サイト説明 ?></p>
 </header>
 <main>
+	<?php if ( is_category() ):	// カテゴリーページの場合 ?>
+		<h1><?php single_cat_title();	// カテゴリー名を表示 ?>に関する記事</h1>
+	<?php endif;	// カテゴリーページの場合 ?>
 	<?php
 	if ( have_posts() ):	// 記事が存在する場合
 		while ( have_posts() ):	// 記事が存在する間
