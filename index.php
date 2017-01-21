@@ -2,10 +2,19 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title><?php wp_title( ' | ', true, 'right' ); bloginfo( 'neme' ); ?></title>
 	<link rel="stylesheet" href="<? echo get_stylesheet_uri();	// style.cssの読み込み ?>">
+	<?php wp_head();	// wpのシステムタグ ?>
 </head>
 <body <?php body_class();	// ページの区別用class ?>>
+<header>
+	<h1>
+		<a href="<?php echo home_url();	// サイトホームへのリンク ?>">
+			<?php bloginfo( 'name' );	// サイトのタイトル ?>
+		</a>
+	</h1>
+	<p><?php bloginfo( 'description' );	// サイト説明 ?></p>
+</header>
 <main>
 	<?php
 	if ( have_posts() ):	// 記事が存在する場合
@@ -14,7 +23,9 @@
 	?>
 	<article <?php post_class();	// 記事の区別用class ?>>
 		<h1>
-			<a href="<?php the_permalink(); ?>"><?php the_title();	// 記事のタイトル ?></a>
+			<a href="<?php the_permalink(); // 記事へのリンク?>">
+				<?php the_title();	// 記事のタイトル ?>
+			</a>
 		</h1>
 		<div>
 			<time datetime="<?php echo get_the_date( 'Y-m-d' );	// 検索エンジン用の日付 ?>">
@@ -28,19 +39,23 @@
 			<?php previous_post_link( '%link', '%title' );	// 前の記事へのリンク ?>
 			<?php next_post_link( '%link', '%title' );	// 次の記事へのリンク ?>
 		</div>
-		<?php endif;?>
+		<?php endif;	// 個別ページの場合 ?>
 	</article>
 	<?php
-		endwhile;
-	endif;
+		endwhile;	// 記事が存在する間
+	endif;	// 記事が存在する場合
 	?>
 
-	<?php if ( $wp_query->max_num_pages > 1): ?>
+	<?php if ( $wp_query->max_num_pages > 1):	// 記事一覧が複数ページに渡る場合 ?>
 		<div>
-			<?php next_posts_link( '古い記事' ); ?>
-			<?php previous_posts_link( '新しい記事' ); ?>
+			<?php next_posts_link( '古い記事' );	// 次の記事一覧 ?>
+			<?php previous_posts_link( '新しい記事' );	// 前の記事一覧 ?>
 		</div>
-	<?php endif; ?>
+	<?php endif;	// 記事一覧が複数ページに渡る場合 ?>
 </main>
+<footer>
+	<small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
+</footer>
+<?php wp_footer();	// wpのシステムタグ ?>
 </body>
 </html>

@@ -5,3 +5,22 @@ Author: Akihiro0710
 Description: This is theme for lesson.
 Version: 1.0
 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.wp-caption {
+  max-width: 100%;
+}
+.wp-caption-text {
+}
