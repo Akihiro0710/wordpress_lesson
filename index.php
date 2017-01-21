@@ -13,7 +13,9 @@
 			the_post();	// 記事を取得
 	?>
 	<article <?php post_class();	// 記事の区別用class ?>>
-		<h1><?php the_title();	// 記事のタイトル ?></h1>
+		<h1>
+			<a href="<?php the_permalink(); ?>"><?php the_title();	// 記事のタイトル ?></a>
+		</h1>
 		<div>
 			<time datetime="<?php echo get_the_date( 'Y-m-d' );	// 検索エンジン用の日付 ?>">
 				<?php echo get_the_date();	// 表示用の日付 ?>
