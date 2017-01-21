@@ -2,8 +2,9 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title><?php bloginfo( 'neme' ); wp_title(); ?></title>
+	<title><?php wp_title( ' | ', true, 'right' ); bloginfo( 'neme' ); ?></title>
 	<link rel="stylesheet" href="<? echo get_stylesheet_uri();	// style.cssの読み込み ?>">
+	<?php wp_head();	// wpのシステムタグ ?>
 </head>
 <body <?php body_class();	// ページの区別用class ?>>
 <header>
@@ -55,5 +56,6 @@
 <footer>
 	<small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
 </footer>
+<?php wp_footer();	// wpのシステムタグ ?>
 </body>
 </html>
