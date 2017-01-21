@@ -17,7 +17,7 @@ if ( have_posts() ):	// 記事が存在するか
 		<time datetime="<?php echo get_the_date( 'Y-m-d' );	// 検索エンジン用の日付 ?>">
 			<?php echo get_the_date();	// 表示用の日付 ?>
 		</time>
-		<span><?php the_category( ',' ); // カテゴリーをカンマ区切りで表示 ?></span>
+		<span><?php the_category(); // カテゴリーをリストで表示 ?></span>
 	</div>
 	<?php the_content();	// 記事のコンテンツ ?>
 </article>
