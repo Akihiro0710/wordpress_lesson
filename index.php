@@ -16,6 +16,12 @@
 	<p><?php bloginfo( 'description' );	// サイト説明 ?></p>
 </header>
 <main>
+	<?php if ( is_category() ):	// カテゴリーページの場合 ?>
+		<h1><?php single_cat_title();	// カテゴリー名を表示 ?>に関する記事</h1>
+	<?php endif;	// カテゴリーページの場合 ?>
+	<?php if ( is_month() ):	// 月別ページの場合 ?>
+		<h1><?php get_the_date( 'Y年n月' );	// 月を表示 ?>に投稿した記事</h1>
+	<?php endif;	// 月別ページの場合 ?>
 	<?php
 	if ( have_posts() ):	// 記事が存在する場合
 		while ( have_posts() ):	// 記事が存在する間
@@ -56,6 +62,11 @@
 <nav>
 	<ul>
 		<?php dynamic_sidebar();?>
+		<li class="widget">
+			<ul>
+				<li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク?>">RSS</a></li>
+			</ul>
+		</li>
 	</ul>
 </nav>
 <footer>
