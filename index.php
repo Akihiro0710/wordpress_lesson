@@ -67,7 +67,7 @@
     <?php dynamic_sidebar(); // ウィジェットの追加エリア ?>
     <li class="widget">
       <ul>
-        <li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク ?>">RSS</a></li>
+        <li><a href="<?php bloginfo( 'rss2_url' ); // RSSフィードのリンク ?>">RSS</a></li>
       </ul>
     </li>
   </ul>
