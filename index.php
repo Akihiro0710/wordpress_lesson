@@ -41,6 +41,13 @@
         <?php echo get_the_date(); // 表示用の日付 ?>
       </time>
       <span><?php the_category(); // カテゴリーをリストで表示 ?></span>
+      <a href="<?php comments_link(); // コメントへのリンク ?>">
+        <?php comments_number(
+          'コメントはありません', // コメントがない時の表示
+          'コメント (1件)', // コメントの件数が1件の時の表示
+          'コメント (%件)' // コメントの件数が%件の時の表示
+        ); ?>
+      </a>
     </div>
     <?php the_content(); // 記事のコンテンツ ?>
     <?php if ( is_single() ): // 個別ページの場合 ?>
@@ -57,6 +64,9 @@
       </ul>
       <?php endif; // コメントがあるか ?>
       <?php comments_template(); // comments.phpを読み込み?>
+      <div>
+        <a href="<?php trackback_url(); // トラックバックURLの表示 ?>">トラックバック</a>
+      </div>
     </aside>
   </article>
   <?php
