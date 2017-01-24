@@ -49,7 +49,15 @@
       <?php next_post_link( '%link', '%title' ); // 次の記事へのリンク ?>
     </div>
     <?php endif; // 個別ページの場合 ?>
-    <?php comments_template(); // comments.phpを読み込み?>
+    <aside>
+      <?php if( have_comments() ): // コメントがあるか ?>
+      <h3>コメント</h3>
+      <ul>
+        <?php wp_list_comments(); // コメントを表示 ?>
+      </ul>
+      <?php endif; // コメントがあるか ?>
+      <?php comments_template(); // comments.phpを読み込み?>
+    </aside>
   </article>
   <?php
     endwhile; // 記事が存在する間
