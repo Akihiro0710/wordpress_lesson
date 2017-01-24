@@ -41,6 +41,13 @@
         <?php echo get_the_date(); // 表示用の日付 ?>
       </time>
       <span><?php the_category(); // カテゴリーをリストで表示 ?></span>
+      <a href="<?php comments_link(); // コメントへのリンク ?>">
+        <?php comments_number(
+          'コメントはありません', // コメントがない時の表示
+          'コメント (1件)', // コメントの件数が1件の時の表示
+          'コメント (%件)' // コメントの件数が%件の時の表示
+        ); ?>
+      </a>
     </div>
     <?php the_content(); // 記事のコンテンツ ?>
     <?php if ( is_single() ): // 個別ページの場合 ?>
@@ -49,6 +56,18 @@
       <?php next_post_link( '%link', '%title' ); // 次の記事へのリンク ?>
     </div>
     <?php endif; // 個別ページの場合 ?>
+    <aside>
+      <?php if( have_comments() ): // コメントがあるか ?>
+      <h3>コメント</h3>
+      <ul>
+        <?php wp_list_comments(); // コメントを表示 ?>
+      </ul>
+      <?php endif; // コメントがあるか ?>
+      <?php comments_template(); // comments.phpを読み込み?>
+      <div>
+        <a href="<?php trackback_url(); // トラックバックURLの表示 ?>">トラックバック</a>
+      </div>
+    </aside>
   </article>
   <?php
     endwhile; // 記事が存在する間
@@ -64,16 +83,16 @@
 </main>
 <nav>
   <ul>
-    <?php dynamic_sidebar();?>
+    <?php dynamic_sidebar(); // ウィジェットの追加エリア ?>
     <li class="widget">
       <ul>
-        <li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク?>">RSS</a></li>
+        <li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク ?>">RSS</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 <footer>
-  <small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
+  <small>Copyright &copy; <?php bloginfo( 'name' ); // サイトのタイトル ?></small>
 </footer>
 <?php wp_footer(); // wpのシステムタグ ?>
 </body>
