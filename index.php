@@ -37,7 +37,7 @@
       <?php next_post_link( '%link', '%title' ); // 次の記事へのリンク ?>
     </div>
     <?php endif; // 個別ページの場合 ?>
-    <aside>
+    <aside id="comments">
       <?php if( have_comments() ): // コメントがあるか ?>
       <h3>コメント</h3>
       <ul>

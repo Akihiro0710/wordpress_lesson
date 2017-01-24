@@ -17,4 +17,9 @@
     </a>
   </h1>
   <p><?php bloginfo( 'description' ); // サイト説明 ?></p>
+  <nav>
+    <?php wp_nav_menu( array(
+      'theme_location' => 'primary'
+      ) ); ?>
+  </nav>
 </header>
