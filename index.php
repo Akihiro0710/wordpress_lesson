@@ -49,6 +49,7 @@
       <?php next_post_link( '%link', '%title' ); // 次の記事へのリンク ?>
     </div>
     <?php endif; // 個別ページの場合 ?>
+    <?php comments_template(); // comments.phpを読み込み?>
   </article>
   <?php
     endwhile; // 記事が存在する間
@@ -64,16 +65,16 @@
 </main>
 <nav>
   <ul>
-    <?php dynamic_sidebar();?>
+    <?php dynamic_sidebar(); // ウィジェットの追加エリア ?>
     <li class="widget">
       <ul>
-        <li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク?>">RSS</a></li>
+        <li><a href="<?php blog_info( 'rss2_url' ) // RSSフィードのリンク ?>">RSS</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 <footer>
-  <small>Copyright &copy; <?php bloginfo( 'name' ); ?></small>
+  <small>Copyright &copy; <?php bloginfo( 'name' ); // サイトのタイトル ?></small>
 </footer>
 <?php wp_footer(); // wpのシステムタグ ?>
 </body>
